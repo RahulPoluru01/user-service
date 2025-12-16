@@ -1,0 +1,15 @@
+/bin
+
+/tmp
+
+*.log
+
+.env
+
+.idea
+
+.vscode
+
+go.sum is OK
+
+go.mod is OK
