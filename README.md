@@ -1,14 +1,20 @@
-User with DOB and Calculated Age — Go Development Project->
+## User with DOB and Calculated Age — Go Development Project->
+
 This Go project helps users to store users data i.e NAME and DOB into Postgres DB and performs crud operations via API and addition to that 
 it generates age dynamically based on DOB and while fetching user details.
 
-Tech Stack->
+---
+
+## Tech Stack->
+
 - [GoFiber](https://gofiber.io/) #Go web framework
 - SQL (PostgreSQL) + [SQLC](https://sqlc.dev/) #for type safe code
 - [Uber Zap](https://github.com/uber-go/zap) #for logging
 - [go-playground/validator](https://github.com/go-playground/validator) #for input validation
 
+---
 
+## Structure
 
 /user-service
 ├── cmd/
@@ -59,13 +65,16 @@ Tech Stack->
 ├── .gitignore
 └── README.md
 
-Quick Start
+---
+
+## Quick Start
+
 Prerequisites
 - go latest version
 - postgresql 18+
 - vscode go extension
 
-Installations
+## Installations
 1.Clone the repository
 
 git clone https://github.com/RahulPoluru01/user-service.git
@@ -98,7 +107,7 @@ The server starts on:
 http://localhost:3000
 
 
-Architecture Overview
+## Architecture Overview
 Frontend
 -postman or browser
 
@@ -111,11 +120,11 @@ id	  |SERIAL|PRIMARY KEY
 name	|TEXT	 |NOT NULL
 dob	  |DATE	 |NOT NULL
 
+---
 
+## API usage:
 
-API usage:
-
-Create user:
+### Create user:
 
 POST /users
 {
@@ -124,17 +133,17 @@ POST /users
 }
 
 
-Get user by ID:
+### Get user by ID:
 
 GET /users/1
 
 
-List users:
+### List users:
 
 GET /users
 
 
-Update user:
+### Update user:
 
 PUT /users/1
 {
@@ -142,12 +151,14 @@ PUT /users/1
   "dob": "1991-03-15"
 }
 
-
-Delete user:
+### Delete user:
 
 DELETE /users/1
 
-example screenshots:
+---
+
+## example screenshots:
+
 <img width="720" height="641" alt="Screenshot (202)" src="https://github.com/user-attachments/assets/55b4686b-5348-49d9-8eff-1a9ac186024c" />
 
 <img width="788" height="815" alt="Screenshot (203)" src="https://github.com/user-attachments/assets/f3521951-eed3-43ea-be85-4fc7595538b9" />
@@ -156,3 +167,4 @@ example screenshots:
 
 <img width="792" height="646" alt="Screenshot (205)" src="https://github.com/user-attachments/assets/68d17c1d-41e3-4165-9fbf-61599502e0f9" />
 
+---
