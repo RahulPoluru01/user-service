@@ -78,31 +78,47 @@ Prerequisites
 ## Installations
 1.Clone the repository
 
+```text
 git clone https://github.com/RahulPoluru01/user-service.git
-cd user-service
 
+cd user-service
+```
 
 2.Database setup and schema migration
 - Open PostgreSQL (pgAdmin or psql)
 - Create database
+  ```text
    CREATE DATABASE user_service;
+  ```
 - Connect to the database
+ ```text
    \c user_service
+```
 - Run schema migration
+```text
    \i db/migrations/001_create_users.sql
+```
 - Verify table creation
+ ```
    \dt
+```
 
 3.Configure database connection
 
-Update the PostgreSQL DSN in: cmd/server/main.go
+Update the PostgreSQL DSN in: 
+
+cmd/server/main.go
+```text
 - postgres://postgres:password_here@localhost:5432/user_service?sslmode=disable
+```
 - Ensure the username, password, and database name match your local setup.
 
 4.Run the application
 
 From the project root:
+```text
   go run cmd/server/main.go
+```
 
 The server starts on: 
 http://localhost:3000
