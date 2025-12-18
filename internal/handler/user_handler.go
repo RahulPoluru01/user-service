@@ -17,14 +17,14 @@ func NewUserHandler(s *service.UserService) *UserHandler {
 }
 
 type CreateUserRequest struct {
-	Name string `json:"name" validate:"required"`
-	Dob  string `json:"dob" validate:"required"`
+	Name string `json:"name" validate:"required,min=2"`
+	Dob  string `json:"dob" validate:"required,datetime=2006-01-02"`
 }
 
 func (h *UserHandler) CreateUser(c *fiber.Ctx) error {
 	var req CreateUserRequest
 
-	if err := c.BodyParser(&req); err != nil {
+	if err := validate.Struct(req); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "invalid request body",
 		})
@@ -89,7 +89,7 @@ func (h *UserHandler) UpdateUser(c *fiber.Ctx) error {
 	}
 
 	var req CreateUserRequest
-	if err := c.BodyParser(&req); err != nil {
+	if err := validate.Struct(req); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "invalid request body",
 		})
