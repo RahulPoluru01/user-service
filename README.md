@@ -14,57 +14,58 @@ it generates age dynamically based on DOB and while fetching user details.
 
 ---
 
-## Structure
+## Project Structure
 
-/user-service
+```text
+user-service/
 ├── cmd/
-│ └── server/
-│ └── main.go                  #application entry point
+│   └── server/
+│       └── main.go            application entry point
 │
-├── config/                    #configuration files
+├── config/                    configuration files
 │
 ├── db/
-│ ├── migrations/              #database schema changes
-│ │ └── 001_create_users.sql
-│ │
-│ ├── queries/                 #raw SQL used by SQLC 
-│ │ └── users.sql
-│ │
-│ └── sqlc/ SQLC               #SQLC generated code
-│ ├── db.go
-│ ├── models.go
-│ └── users.sql.go
+│   ├── migrations/            database schema changes
+│   │   └── 001_create_users.sql
+│   │
+│   ├── queries/               raw SQL used by SQLC
+│   │   └── users.sql
+│   │
+│   └── sqlc/                  SQLC generated code
+│       ├── db.go
+│       ├── models.go
+│       └── users.sql.go
 │
-├── internal/                  #core application code
-│ ├── handler/                 #HTTP request handlers
-│ │ ├── health_handler.go
-│ │ ├── user_handler.go
-│ │ └── validator.go
-│ │
-│ ├── repository/              #data access layer
-│ │ ├── db.go
-│ │ ├── user_repository.go
-│ │ └── user_repository_impl.go
-│ │
-│ ├── service/                 #business logic
-│ │ └── user_service.go
-│ │
-│ ├── routes/                  #route registration
-│ │ └── routes.go
-│ │
-│ ├── middleware/              #request lifecycle logic
-│ │ ├── request_id.go
-│ │ └── request_logger.go
-│ │
-│ └── logger/                  #logging setup
-│ └── logger.go
+├── internal/                  core application code
+│   ├── handler/               HTTP request handlers
+│   │   ├── health_handler.go
+│   │   ├── user_handler.go
+│   │   └── validator.go
+│   │
+│   ├── repository/            data access layer
+│   │   ├── db.go
+│   │   ├── user_repository.go
+│   │   └── user_repository_impl.go
+│   │
+│   ├── service/               business logic
+│   │   └── user_service.go
+│   │
+│   ├── routes/                route registration
+│   │   └── routes.go
+│   │
+│   ├── middleware/            request lifecycle logic
+│   │   ├── request_id.go
+│   │   └── request_logger.go
+│   │
+│   └── logger/                logging setup
+│       └── logger.go
 │
 ├── go.mod
 ├── go.sum
 ├── sqlc.yaml
 ├── .gitignore
 └── README.md
-
+```
 ---
 
 ## Quick Start
@@ -82,21 +83,21 @@ cd user-service
 
 
 2.Database setup and schema migration
--Open PostgreSQL (pgAdmin or psql)
--Create database
+- Open PostgreSQL (pgAdmin or psql)
+- Create database
    CREATE DATABASE user_service;
--Connect to the database
+- Connect to the database
    \c user_service
--Run schema migration
+- Run schema migration
    \i db/migrations/001_create_users.sql
--Verify table creation
+- Verify table creation
    \dt
 
 3.Configure database connection
 
 Update the PostgreSQL DSN in: cmd/server/main.go
-   postgres://postgres:password_here@localhost:5432/user_service?sslmode=disable
-Ensure the username, password, and database name match your local setup.
+- postgres://postgres:password_here@localhost:5432/user_service?sslmode=disable
+- Ensure the username, password, and database name match your local setup.
 
 4.Run the application
 
@@ -108,13 +109,13 @@ http://localhost:3000
 
 
 ## Architecture Overview
-Frontend
--postman or browser
+### Frontend
+- postman or browser
 
-Backend
-built with gofiber
+### Backend
+- built with gofiber
 
-database users table: 
+- database users table: 
 Field	|Type	 |Constraints
 id	  |SERIAL|PRIMARY KEY
 name	|TEXT	 |NOT NULL
@@ -161,9 +162,18 @@ DELETE /users/1
 
 <img width="720" height="641" alt="Screenshot (202)" src="https://github.com/user-attachments/assets/55b4686b-5348-49d9-8eff-1a9ac186024c" />
 
+
+
+
 <img width="788" height="815" alt="Screenshot (203)" src="https://github.com/user-attachments/assets/f3521951-eed3-43ea-be85-4fc7595538b9" />
 
+
+
+
 <img width="1030" height="375" alt="Screenshot (204)" src="https://github.com/user-attachments/assets/f1a48b5e-3b99-4f2d-ba5c-d6308bd5e0a9" />
+
+
+
 
 <img width="792" height="646" alt="Screenshot (205)" src="https://github.com/user-attachments/assets/68d17c1d-41e3-4165-9fbf-61599502e0f9" />
 
