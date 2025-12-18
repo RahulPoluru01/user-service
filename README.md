@@ -116,12 +116,14 @@ http://localhost:3000
 - built with gofiber
 
 - database users table:
-  
+```text
+
 Field	|Type	 |Constraints
 id	  |SERIAL|PRIMARY KEY
 name	|TEXT	 |NOT NULL
 dob	  |DATE	 |NOT NULL
 
+```
 ---
 
 ## API usage:
