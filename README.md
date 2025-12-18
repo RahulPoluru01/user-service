@@ -115,7 +115,8 @@ http://localhost:3000
 ### Backend
 - built with gofiber
 
-- database users table: 
+- database users table:
+  
 Field	|Type	 |Constraints
 id	  |SERIAL|PRIMARY KEY
 name	|TEXT	 |NOT NULL
