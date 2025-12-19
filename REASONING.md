@@ -87,7 +87,6 @@ This design:
 
 It helped me understand how abstraction can keep layers independent while still maintaining control over behavior.
 
----
 
 #### How I adapted to Go for this task
 
