@@ -18,7 +18,6 @@ func RequestLogger() fiber.Handler {
 
 		logger.Log.Info(
 			"request completed",
-			// zap fields will be added later
 		)
 
 		_ = reqID
