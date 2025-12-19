@@ -126,7 +126,7 @@ http://localhost:3000
 
 ## Architecture Overview
 ### Frontend
-- postman or browser
+- postman API client
 
 ### Backend
 - built with gofiber
